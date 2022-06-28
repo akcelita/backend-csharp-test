@@ -40,21 +40,21 @@ This will open the Swagger documentation and you will be able to test each one o
 
 There are four tasks that need to be completed for this project
 
-### Insert a new order into the system.
+### ✅  Insert a new order into the system.
 
 You must finish the `PostOrder` method inside of `Controllers/OrdersController.cs`. The Data Transfer Object has already been created for you. It is important that the total cost of the order is calculated based on the products selected.
 
 **To keep things simple, an order cannot have repeating products**
 
-### Get the Sales Per City
+### ✅  Get the Sales Per City
 
 Implement `GetSalesPerCity` method inside of `StatsController/GetSalesPerCity`. The expected Object has already been created for you.
 
-### Get the number of Orders Per User
+### ✅  Get the number of Orders Per User
 
 Implement `GetSalesPerCity` method inside of `StatsController/GetOrdersPerUsers`. The expected Object has already been created for you.
 
-### Get the total number of products sold
+### ✅  Get the total number of products sold
 
 Implement `GetSalesPerCity` method inside of `StatsController/GetProductsSold`. The expected Object has already been created for you.
 
