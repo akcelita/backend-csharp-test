@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AkcelitaTest.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/stats")]
     [ApiController]
     public class StatsController : Controller
     {
@@ -31,7 +31,7 @@ namespace AkcelitaTest.Controllers
             throw new NotImplementedException();
         }
 
-        [HttpGet("order-per-users")]
+        [HttpGet("products-sold")]
         public async Task<ActionResult<IEnumerable<ProductsSoldDTO>>> GetProductsSold()
         {
             throw new NotImplementedException();

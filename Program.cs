@@ -1,4 +1,4 @@
-using Microsoft.EntityFrameworkCore;
+using AkcelitaTest;
 using AkcelitaTest.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +12,18 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<DatabaseContext>();
+    if (dbContext != null)
+    {
+        var dbInitializer = new DbInitializer(dbContext);
+        dbInitializer.Initialize();
+    }
+}
+
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

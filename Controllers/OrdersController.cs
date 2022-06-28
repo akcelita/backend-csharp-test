@@ -9,7 +9,7 @@ using AkcelitaTest.Models;
 
 namespace AkcelitaTest.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/orders")]
     [ApiController]
     public class OrdersController : ControllerBase
     {
@@ -24,21 +24,24 @@ namespace AkcelitaTest.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
-          if (_context.Orders == null)
-          {
-              return NotFound();
-          }
-            return await _context.Orders.ToListAsync();
+            if (_context.Orders == null)
+            {
+                return NotFound();
+            }
+            return await _context.Orders
+            .Include(o => o.Products)
+            .Include(o => o.Address)
+            .ToListAsync();
         }
 
         // GET: api/Orders/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(long id)
         {
-          if (_context.Orders == null)
-          {
-              return NotFound();
-          }
+            if (_context.Orders == null)
+            {
+                return NotFound();
+            }
             var order = await _context.Orders.FindAsync(id);
 
             if (order == null)
@@ -83,16 +86,14 @@ namespace AkcelitaTest.Controllers
         // POST: api/Orders
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Order>> PostOrder(Order order)
+        public async Task<ActionResult<Order>> PostOrder(NewOrderDTO order)
         {
-          if (_context.Orders == null)
-          {
-              return Problem("Entity set 'DatabaseContext.Orders'  is null.");
-          }
-            _context.Orders.Add(order);
-            await _context.SaveChangesAsync();
+            if (_context.Orders == null)
+            {
+                return Problem("Entity set 'DatabaseContext.Orders'  is null.");
+            }
 
-            return CreatedAtAction("GetOrder", new { id = order.Id }, order);
+            throw new NotImplementedException();
         }
 
         // DELETE: api/Orders/5

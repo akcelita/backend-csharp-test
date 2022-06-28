@@ -15,4 +15,16 @@ public class Order
     public long AddressId { get; set; }
 
     public Address? Address { get; set; }
+
+    [ForeignKey("UserId")]
+    public long UserId { get; set; }
+    public User? User { get; set; }
+}
+
+public class NewOrderDTO
+{
+    public long UserId { get; set; }
+    public List<long> ProductIds { get; set; }
+
+    public Address Address { get; set; }
 }
