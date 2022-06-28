@@ -60,7 +60,7 @@ Implement `GetSalesPerCity` method inside of `StatsController/GetProductsSold`. 
 
 ## Submission
 
-You can submit your code by creating a fork of this project and sending the new repository or generating a Zip version of your project and emailing at **johnnietirado@akcelita.com**
+You can submit your code by creating a fork of this project and sending the new repository or generating a Zip version of your project and emailing  **johnnietirado@akcelita.com** or **jammyvelez@akcelita.com**
 
 ### Good Luck!
 
