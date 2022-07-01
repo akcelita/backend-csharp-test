@@ -8,7 +8,7 @@ public class Order
     [Key]
     public long Id { get; set; }
 
-    public List<Product>? Products { get; set; }
+    public ICollection<Product>? Products { get; set; }
     public double Total { get; set; }
 
     [ForeignKey("AddresId")]
